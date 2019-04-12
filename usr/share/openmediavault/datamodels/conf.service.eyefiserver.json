@@ -1,0 +1,45 @@
+{
+	"type": "config",
+	"id": "conf.service.eyefiserver",
+	"title": "eyefiserver",
+	"queryinfo": {
+		"xpath": "//services/eyefiserver",
+		"iterable": false
+	},
+	"properties": {
+		"enable": {
+			"type": "boolean",
+			"default": false
+		},
+		"card_mac_address": {
+			"type": "string",
+			"default": "0"
+		},
+		"upload_key": {
+			"type": "string",
+			"default": "0"
+		},
+		"sub_directory_schema": {
+			"type": "string",
+			"required": true
+		},		
+		"upload_user": {
+			"type": "string",
+			"default": "0"
+		},
+		"upload_group": {
+			"type": "string",
+			"default": "0"
+		},
+		"upload_dir": {
+			"type": "string",
+			"oneOf": [{
+				"type": "string",
+				"format": "uuidv4"
+			},{
+				"type": "string",
+				"maxLength": 0
+			}]
+		}
+	}
+}

@@ -1,0 +1,17 @@
+Source: openmediavault-eyefi
+Section: misc
+XB-Plugin-Section: utilities
+Priority: optional
+Maintainer: OpenMediaVault Plugin Eye-Fi <sven.luebke@mikrosol.de>
+Build-Depends: debhelper (>= 9 )
+Standards-Version: 3.9.8
+Homepage: http://omv-extras.org/
+
+Package: openmediavault-eyefi
+Architecture: all
+Depends: openmediavault (>= 4.0.4),
+         eyefiserver
+         ${misc:Depends}
+Description: OpenMediaVault Eye-Fi plugin
+ Plugin to use Eye-Fi SD cards with OpenMediaVault. Pictures and videos
+ will be synchronized to a configured shared folder.

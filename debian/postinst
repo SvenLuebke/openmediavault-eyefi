@@ -1,0 +1,41 @@
+#!/bin/sh
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+case "$1" in
+    configure)
+        SERVICE_XPATH_NAME="eyefiserver"
+        SERVICE_XPATH="/config/services/${SERVICE_XPATH_NAME}"
+
+        # Add the default configuration
+        if ! omv_config_exists "${SERVICE_XPATH}"; then
+            omv_config_add_element "/config/services" "${SERVICE_XPATH_NAME}"
+            omv_config_add_element "${SERVICE_XPATH}" "enable" "0"
+            omv_config_add_element "${SERVICE_XPATH}" "card_mac_address" "001856600000"
+            omv_config_add_element "${SERVICE_XPATH}" "upload_key" "0"
+            omv_config_add_element "${SERVICE_XPATH}" "upload_dir" "0"
+        fi
+
+        # Activate package triggers. These triggers are only set during the
+        # package installation.
+        dpkg-trigger update-fixperms
+        dpkg-trigger update-locale
+
+        sed -i -e "s;#EYEFIUSER=www-data;EYEFIUSER=www-data;" -e "s;#EYEFIGROUP=www-data;EYEFIGROUP=www-data;" /etc/default/eyefiserver
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+
+    *)
+        echo "postinst called with unknown argument" >&2
+        exit 1
+    ;;
+esac
+
+#DEBHELPER#
+
+exit 0

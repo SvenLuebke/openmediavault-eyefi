@@ -1,0 +1,44 @@
+[{
+	"type": "rpc",
+	"id": "rpc.eyefiserver.setsettings",
+	"params": {
+		"type": "object",
+		"properties": {
+			"enable": {
+				"type": "boolean",
+				"required": true
+			},
+			"card_mac_address": {
+				"type": "string",
+				"required": true
+			},
+			"upload_key": {
+				"type": "string",
+				"required": true
+			},
+			"sub_directory_schema": {
+				"type": "string",
+				"required": true
+			},
+			"upload_user": {
+				"type": "string",
+				"required": true
+			},
+			"upload_group": {
+				"type": "string",
+				"required": true
+			},
+			"upload_dir": {
+				"type": "string",
+				"oneOf": [{
+					"type": "string",
+					"format": "uuidv4"
+				},{
+					"type": "string",
+					"maxLength": 0
+				}],
+				"required": true
+			}
+		}
+	}
+}]
