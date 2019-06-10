@@ -21,7 +21,7 @@
 		},
 		"sub_directory_schema": {
 			"type": "string",
-			"required": true
+			"default": "%Y_%m_%d_"
 		},		
 		"upload_user": {
 			"type": "string",

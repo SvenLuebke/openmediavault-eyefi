@@ -65,26 +65,27 @@ Ext.define("OMV.module.admin.service.eyefiserver.Settings", {
                 allowBlank: false
             },
             {
-        				xtype: "sharedfoldercombo",
-        				name: "upload_dir",
-        				fieldLabel: _("Upload folder"),
-        				allowNone: false,
-        				plugins: [{
-        					ptype: "fieldinfo",
-        					text: Ext.String.format("{0} {1}",
-        					  _("The location of the files where new images are uploaded."),
-        					  _("Please make sure that the shared folder is publicly writable if new files are allowed."))
-        				}]
+                xtype: "sharedfoldercombo",
+                name: "upload_dir",
+                fieldLabel: _("Upload folder"),
+                allowNone: false,
+                plugins: [{
+                  ptype: "fieldinfo",
+                  text: Ext.String.format("{0} {1}",
+                    _("The location of the files where new images are uploaded."),
+                    _("Please make sure that the shared folder is publicly writable if new files are allowed."))
+                }]
             },
             {
                 xtype: "textfield",
                 name: "sub_directory_schema",
                 fieldLabel: _("Sub directory schema"),
-        				plugins: [{
-        					ptype: "fieldinfo",
-      					  text: Ext.String.format("{0} {1}",
-      					    _("The subfolder for each transferred picture."),
-      					    _("It can contain a strftime formatted string."))}],
+                plugins: [{
+                  ptype: "fieldinfo",
+                  text: Ext.String.format("{0} {1}",
+                    _("The subfolder for each transferred picture."),
+                    _("It can contain a strftime formatted string."))
+                }],
                 allowDecimals: true,
                 allowBlank: false
             },
